@@ -83,6 +83,11 @@ echo $(head Project.toml)
 sed -i "s/[0-9]\{1,2\}\.[0-9]\{1,2\}\.[0-9]\{1,2\}/${new#v}/" Project.toml
 echo $(head Project.toml)
 
+git config --global user.name '${GITHUB_ACTOR}' 
+git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com' 
+git add -A && git commit -m '$*' --allow-empty 
+git push -u origin HEAD
+
 
 # set outputs
 echo ::set-output name=new_tag::$new
