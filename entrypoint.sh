@@ -80,7 +80,7 @@ fi
 # set version number in project.toml
 echo $new
 echo $(head Project.toml)
-sed -i "s/[0-9]\{1,2\}\.[0-9]\{1,2\}\.[0-9]\{1,2\}/${new}/" Project.toml
+sed -i "s/[0-9]\{1,2\}\.[0-9]\{1,2\}\.[0-9]\{1,2\}/${new#v}/" Project.toml
 
 # set outputs
 echo ::set-output name=new_tag::$new
