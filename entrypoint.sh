@@ -78,6 +78,7 @@ then
 fi
 
 echo $new
+echo $(head Project.toml)
 
 # set outputs
 echo ::set-output name=new_tag::$new
